@@ -31,7 +31,7 @@ print("---------------------------------------")
 def Emailing():    
     print("---------  Monitoring a minute-by-minute watch to ensure Survey CTO is functioning properly  ---------")    
     try:
-        urllib.request.urlopen("https://www.surveycto.cm").getcode()
+        urllib.request.urlopen("https://www.surveycto.com").getcode()
     except:
         email_sender = 'second.dyari@gmail.com'
         email_password = 'mpuuajuhmwiwbwzs'
