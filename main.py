@@ -29,7 +29,7 @@ print("Survey CTO Data Monitoring ")
 print("---------------------------------------")
 
 def Emailing():    
-    print("---------  Monitoring a minute-by-minute watch to ensure Survey CTO is functioning properly  ---------")    
+    print(f"---------  Monitoring a 15-minuteby 15-minute watch to ensure Survey CTO is functioning properly {time.localtime().tm_hour}:{time.localtime().tm_min}:{time.localtime().tm_sec}  ---------")    
     try:
         urllib.request.urlopen("https://www.surveycto.com").getcode()
     except:
@@ -50,11 +50,11 @@ def Emailing():
             smtp.sendmail(email_sender, email_receiver, em.as_string())
         print("----------------")
         print("----------------")
-        print("EMAIL SENT")
+        print("Something went wrong while making a connection to the website. AN EMAIL has been SENT")
         print("----------------")
         print("----------------")
 
-schedule.every().minute.at(':00').do(Emailing)
+schedule.every(10).minutes.do(Emailing)
 while True:
     schedule.run_pending()
     time.sleep(.1)
